@@ -16,5 +16,7 @@
   "author": "Mark Hurwitz",
   "license": "ISC",
   "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {
+    "jest": "^20.0.4"
+  }
 }
