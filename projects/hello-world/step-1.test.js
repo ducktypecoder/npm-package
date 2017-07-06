@@ -17,5 +17,5 @@ var sayHello = require('./src/say-hello');
 
 // second, test that it works:
 it('says hello world', () => {
-  expect(sayHello()).toEqual('Hello world FOOO');
+  expect(sayHello()).toEqual('Hello world');
 });
