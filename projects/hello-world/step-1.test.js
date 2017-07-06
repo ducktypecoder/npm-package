@@ -1,13 +1,21 @@
-it('works with jest', () => {
-  expect(true).toBe(true);
-})
-
-// var perform = require('../../lib/test-framework');
-
-// var tests = [
-//   ['finds the correct files', true, true],
-//   ['finds the correct functions and objects', true, true],
-//   ['functions work as expected', true, true]
-// ];
+// This test is specifically for step 1 of the Hello World project.
+// In that project, we should find a file '/src/say-hello',
+// and that file should export the function 'sayHello'.
 //
-// module.exports = () => perform(tests);
+// That project includes this package, 'ducktypecoder', and these
+// tests are within the ducktypecoder package.
+//
+// When the test runner runs, it first will copy this file into
+// the working project root directory. Import files as if
+// you are in that root directory.
+//
+// In these tests, we want to import the 'sayHello' functions
+// and test that it works as expected.
+
+// first, import the file:
+var sayHello = require('./src/say-hello');
+
+// second, test that it works:
+it('says hello world', () => {
+  expect(sayHello()).toEqual('Hello world FOOO');
+});

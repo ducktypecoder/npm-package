@@ -15,7 +15,9 @@
   ],
   "author": "Mark Hurwitz",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "fs-extra": "^3.0.1"
+  },
   "devDependencies": {
     "jest": "^20.0.4"
   }
