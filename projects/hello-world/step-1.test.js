@@ -12,10 +12,10 @@
 // In these tests, we want to import the 'sayHello' functions
 // and test that it works as expected.
 
-// first, import the file:
-var sayHello = require('./src/say-hello');
+// first, test that the project actually runs.
+// if any test passes at this step, we are good to go.
 
 // second, test that it works:
-it('says hello world', () => {
-  expect(sayHello()).toEqual('Hello world');
+it('runs with ducktypecoder', () => {
+  expect(true).toEqual(true);
 });

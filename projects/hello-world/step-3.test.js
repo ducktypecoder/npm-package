@@ -1,8 +1,10 @@
-var addNumbers = require('./src/add-numbers');
+// We passed the first step in the project. Now we will test for step 2.
+
+// first, import the file:
+var sayMyName = require('./src/say-my-name');
 
 // second, test that it works:
-it('adds numbers', () => {
-  const num1 = 3;
-  const num2 = 4;
-  expect(addNumbers(num1, num2)).toEqual(7);
+it('says my name', () => {
+  const name = 'bob';
+  expect(sayMyName(name)).toEqual(name);
 });

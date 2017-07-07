@@ -14,11 +14,12 @@ pwd.stdout.on('data', data => {
 
 // after we kill the child process, proceed, knowing the workign project directory
 pwd.stdout.on('close', code => {
+  console.log('--- --- --- ---');
   console.log('starting to check your work with ducktypecoder!');
   config = getConfig(projectDirectory);
 
   updateUserProgress(config).then(() => {
-    console.log('finished!');
+    console.log('--- --- --- ---');
     process.exit(0);
   });
 });
