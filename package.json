@@ -3,16 +3,13 @@
   "version": "1.0.0",
   "description": "Test ducktypecoder projects and sync progress in the cloud",
   "main": "index.js",
+  "bin": {
+    "ducktypecoder": "index.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [
-    "test",
-    "learn",
-    "project",
-    "practice",
-    "example"
-  ],
+  "keywords": ["test", "learn", "project", "practice", "example"],
   "author": "Mark Hurwitz",
   "license": "ISC",
   "dependencies": {

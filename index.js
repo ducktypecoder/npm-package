@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 var getConfig = require('./lib/get-config');
 var updateUserProgress = require('./lib/update-user-progress');
 var { spawn } = require('child_process');
