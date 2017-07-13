@@ -1,6 +1,6 @@
 {
   "name": "ducktypecoder",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Test ducktypecoder projects and sync progress in the cloud",
   "repository": {
     "type": "git",
@@ -14,7 +14,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["test", "learn", "project", "practice", "example"],
+  "keywords": [
+    "test",
+    "learn",
+    "project",
+    "practice",
+    "example"
+  ],
   "author": "Mark Hurwitz",
   "license": "ISC",
   "dependencies": {
