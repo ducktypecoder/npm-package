@@ -2,6 +2,11 @@
   "name": "ducktypecoder",
   "version": "0.2.0",
   "description": "Test ducktypecoder projects and sync progress in the cloud",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ducktypecoder/npm-package.git"
+  },
+  "homepage": "https://github.com/ducktypecoder/npm-package",
   "main": "index.js",
   "bin": {
     "ducktypecoder": "index.js"
@@ -9,13 +14,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [
-    "test",
-    "learn",
-    "project",
-    "practice",
-    "example"
-  ],
+  "keywords": ["test", "learn", "project", "practice", "example"],
   "author": "Mark Hurwitz",
   "license": "ISC",
   "dependencies": {
