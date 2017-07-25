@@ -1,27 +1,18 @@
 #!/usr/bin/env node
 
-var getConfig = require('./lib/get-config');
-var updateUserProgress = require('./lib/update-user-progress');
-var { spawn } = require('child_process');
-var pwd = spawn('pwd');
+var program = require('commander');
+var nextStep = require('./lib/next-step');
 
-var projectDirectory;
-var config;
+program
+  .version('0.0.1')
+  .description('Create and follow projects on ducktypecoder')
+  .parse(process.argv);
 
-// run a quick child process and grab the working project directory
-pwd.stdout.on('data', data => {
-  projectDirectory = `${data}`;
-  pwd.kill();
-});
-
-// after we kill the child process, proceed, knowing the workign project directory
-pwd.stdout.on('close', code => {
-  console.log('--- --- --- ---');
-  console.log('starting to check your work with ducktypecoder!');
-  config = getConfig(projectDirectory);
-
-  updateUserProgress(config).then(() => {
-    console.log('--- --- --- ---');
-    process.exit(0);
-  });
-});
+switch (program.args[0]) {
+  case 'next':
+    nextStep();
+    return;
+  default:
+    console.log('no command provided...')
+    return;
+}
