@@ -12,7 +12,8 @@
     "ducktypecoder": "index.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "test:watch": "npm run test -- --watch"
   },
   "keywords": [
     "test",
@@ -25,8 +26,14 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.16.2",
+    "chalk": "^2.0.1",
     "commander": "^2.11.0",
-    "fs-extra": "^3.0.1"
+    "figlet": "^1.2.0",
+    "fs-extra": "^3.0.1",
+    "inquirer": "^3.2.1",
+    "nodegit": "^0.18.3",
+    "promisify-node": "^0.4.0",
+    "simple-git": "^1.74.1"
   },
   "devDependencies": {
     "jest": "^20.0.4"
