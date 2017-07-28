@@ -3,6 +3,7 @@
 var program = require('commander');
 var chalk = require('chalk');
 var figlet = require('figlet');
+var startProject = require('./lib/start-project');
 var nextStep = require('./lib/next-step');
 var initializeProject = require('./lib/initialize-project');
 var addStep = require('./lib/add-step');
@@ -21,6 +22,9 @@ console.log(
 );
 
 switch (program.args[0]) {
+  case 'start':
+    startProject(program.args);
+    return;
   case 'next':
     nextStep();
     return;
