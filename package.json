@@ -36,6 +36,12 @@
     "simple-git": "^1.74.1"
   },
   "devDependencies": {
+    "eslint": "^4.3.0",
+    "eslint-config-airbnb-base": "^11.3.1",
+    "eslint-config-prettier": "^2.3.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-prettier": "^2.1.2",
     "jest": "^20.0.4"
   }
 }
