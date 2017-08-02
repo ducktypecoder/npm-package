@@ -10,6 +10,7 @@ var addStep = require('./lib/add-step');
 var addAnswer = require('./lib/add-answer');
 var addConclusion = require('./lib/add-conclusion');
 var showInfo = require('./lib/show-info');
+var viewContent = require('./lib/view-content');
 
 program
   .version('0.0.1')
@@ -31,6 +32,9 @@ switch (program.args[0]) {
     return;
   case 'info':
     showInfo();
+    return;
+  case 'view':
+    viewContent();
     return;
   case 'init':
     initializeProject(program.args);
