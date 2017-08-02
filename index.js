@@ -9,6 +9,7 @@ var initializeProject = require('./lib/initialize-project');
 var addStep = require('./lib/add-step');
 var addAnswer = require('./lib/add-answer');
 var addConclusion = require('./lib/add-conclusion');
+var showInfo = require('./lib/show-info');
 
 program
   .version('0.0.1')
@@ -27,6 +28,9 @@ switch (program.args[0]) {
     return;
   case 'next':
     nextStep();
+    return;
+  case 'info':
+    showInfo();
     return;
   case 'init':
     initializeProject(program.args);
