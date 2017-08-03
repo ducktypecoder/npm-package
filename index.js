@@ -11,6 +11,7 @@ var addAnswer = require('./lib/add-answer');
 var addConclusion = require('./lib/add-conclusion');
 var showInfo = require('./lib/show-info');
 var viewContent = require('./lib/view-content');
+var publish = require('./lib/publish');
 
 program
   .version('0.0.1')
@@ -47,6 +48,9 @@ switch (program.args[0]) {
     if (typeToAdd === 'conclusion') addConclusion(program.args);
 
     return
+  case 'publish':
+    publish();
+    return;
   case undefined:
     console.log('no command provided...')
     return;
