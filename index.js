@@ -11,6 +11,7 @@ var addAnswer = require('./lib/add-answer');
 var addConclusion = require('./lib/add-conclusion');
 var showInfo = require('./lib/show-info');
 var viewContent = require('./lib/view-content');
+var editAuthor = require('./lib/edit-author');
 var publish = require('./lib/publish');
 
 program
@@ -47,6 +48,11 @@ switch (program.args[0]) {
     if (typeToAdd === 'answer') addAnswer(program.args);
     if (typeToAdd === 'conclusion') addConclusion(program.args);
 
+    return
+  case 'edit':
+    var typeToAdd = program.args[1];
+
+    if (typeToAdd === 'author') editAuthor(program);
     return
   case 'publish':
     publish();
