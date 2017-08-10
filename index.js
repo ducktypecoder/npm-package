@@ -13,6 +13,7 @@ var showInfo = require('./lib/show-info');
 var viewContent = require('./lib/view-content');
 var editAuthor = require('./lib/edit-author');
 var publish = require('./lib/publish');
+var login = require('./lib/login');
 
 program
   .version('0.0.1')
@@ -25,6 +26,15 @@ console.log(
   )
 );
 
+// TODO: refactor this to use commander's actual api
+// ie:
+// program
+//    .command('setup')
+//    .description('run remote setup commands')
+//    .action(function() {
+//      console.log('setup');
+//    });
+// http://tj.github.io/commander.js/#Command.prototype.command
 switch (program.args[0]) {
   case 'start':
     startProject(program.args);
@@ -56,6 +66,9 @@ switch (program.args[0]) {
     return
   case 'publish':
     publish();
+    return;
+  case 'login':
+    login();
     return;
   case undefined:
     console.log('no command provided...')
