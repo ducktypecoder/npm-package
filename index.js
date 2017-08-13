@@ -14,6 +14,7 @@ var viewContent = require('./lib/view-content');
 var editAuthor = require('./lib/edit-author');
 var publish = require('./lib/publish');
 var login = require('./lib/login');
+var logout = require('./lib/logout');
 
 program
   .version('0.0.1')
@@ -69,6 +70,9 @@ switch (program.args[0]) {
     return;
   case 'login':
     login();
+    return;
+  case 'logout':
+    logout();
     return;
   case undefined:
     console.log('no command provided...')
