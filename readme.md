@@ -16,6 +16,9 @@ consumer runs this command when they have finished the current step. the command
 
 on going to a new step, app will branch accordingly (git checkout -b ducktypecoder-step-3)
 
+
+**NOT YET IMPLEMENTED:**
+
 ```
 ducktypecoder next —force
 ```
@@ -38,7 +41,7 @@ consumer runs this to wipe out their current git branch and pull down the projec
 ## creator / author
 
 ```
-ducktypecoder new project-title
+ducktypecoder init
 ```
 
 creator runs this command to setup a new project that is ready to begin adding content and tests. This will be the ‘master’ branch and it will provide the introduction and description of the project. The creator will run ‘ducktypecoder add step’ to create the first step.
@@ -66,6 +69,15 @@ ducktypecoder add conclusion
 creator runs this when all steps & answers are provided. This conclusion will be displayed when the learner finishes the project. It might say ‘congratulations!’ and point to additional learning and resources.
 
 ```
+ducktypecoder edit author
+```
+
+Creator runs this to add their own information, like email and twitter handle, to the project's meta data.
+
+
+**NOT YET IMPLEMENTED:**
+
+```
 ducktypecoder edit step <number>
 ```
 
@@ -83,29 +95,18 @@ Similar to ‘goto’, this command changes to the corresponding branch so the c
 ducktypecoder login
 ```
 
-user will login to make their project sync onto the web platform.  Consider using github oauth, similar to firebase command line (opens up a browser and logs in with google oauth)
+User must login to publish their project sync onto the web platform.
 
 ```
 ducktypecoder logout
 ```
 
-erases user auth from local machine.
+Erases user auth from local machine.
 
 # contribute
 
-To develop this package and the main app locally, set 'development: true' in your project config.
+Clone the project and run it alongside the ducktyper app.
 
-That will set the api url to hit your localhost rather than the production app.
+Be aware of whether you are hitting the development or production web urls.
 
-For example, using the hello-world project,
-
-```
-
-module.exports = {
-  token: <testusertoken>,
-  project: 'hello-world',
-  development: true
-}
-
-// /hello-world/ducktypecoder.js
-```
+NOT YET IMPLEMENTED: allow an option, '--development', to set the commands to use the local development app url (http://localhost:3000).
