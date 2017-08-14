@@ -75,6 +75,12 @@ ducktypecoder edit author
 Creator runs this to add their own information, like email and twitter handle, to the project's meta data.
 
 
+```
+ducktypecoder publish
+```
+
+Commits current work, gathers all the project steps and posts the project to the ducktypecoder web app. User must be logged in.
+
 **NOT YET IMPLEMENTED:**
 
 ```
