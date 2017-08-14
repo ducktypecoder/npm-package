@@ -1,83 +1,79 @@
 #!/usr/bin/env node
 
-var program = require('commander');
-var chalk = require('chalk');
-var figlet = require('figlet');
-var startProject = require('./lib/start-project');
-var nextStep = require('./lib/next-step');
-var initializeProject = require('./lib/initialize-project');
-var addStep = require('./lib/add-step');
-var addAnswer = require('./lib/add-answer');
-var addConclusion = require('./lib/add-conclusion');
-var showInfo = require('./lib/show-info');
-var viewContent = require('./lib/view-content');
-var editAuthor = require('./lib/edit-author');
-var publish = require('./lib/publish');
-var login = require('./lib/login');
-var logout = require('./lib/logout');
+const program = require('commander');
+const startProject = require('./lib/start-project');
+const nextStep = require('./lib/next-step');
+const initializeProject = require('./lib/initialize-project');
+const addStep = require('./lib/add-step');
+const addAnswer = require('./lib/add-answer');
+const addConclusion = require('./lib/add-conclusion');
+const showInfo = require('./lib/show-info');
+const viewContent = require('./lib/view-content');
+const editAuthor = require('./lib/edit-author');
+const publish = require('./lib/publish');
+const login = require('./lib/login');
+const logout = require('./lib/logout');
+const logger = require('./lib/utils/logger');
 
 program
-  .version('0.0.1')
-  .description('Create and follow projects on ducktypecoder')
-  .parse(process.argv);
+  .version(require('./package.json').version)
+  .description('Create and follow ducktypecoder projects.');
 
-console.log(
-  chalk.yellow(
-    figlet.textSync('ducktypecoder', { horizontalLayout: 'full' })
+program
+  .command('login')
+  .description('Login with the ducktypecoder web app')
+  .action(login);
+program
+  .command('logout')
+  .description('Logout from the ducktypecoder command line tool.')
+  .action(logout);
+program
+  .command('info')
+  .description('Show the current project information.')
+  .action(showInfo);
+program
+  .command('next')
+  .description('Proceed to the next step, if all the current tests pass.')
+  .action(nextStep);
+program
+  .command('view')
+  .description('View the current step instructions on a web page')
+  .action(viewContent);
+program
+  .command('publish')
+  .description(
+    'Publish a new project or update and existing project on ducktypecoder.com'
   )
-);
+  .action(publish);
+program
+  .command('start [name]')
+  .description('Provide a name or URL and start a ducktypecoder project.')
+  .action(name => {
+    startProject(name);
+  });
+program
+  .command('init [name]')
+  .description('Begin authoring your own ducktypecoder project.')
+  .action(name => {
+    initializeProject(name);
+  });
+program
+  .command('add [thing]')
+  .description(
+    'Add another step, answer or a conclusion to your ducktypecoder project.'
+  )
+  .action(thing => {
+    if (thing === 'step') addStep();
+    if (thing === 'answer') addAnswer();
+    if (thing === 'conclusion') addConclusion();
+  });
+program
+  .command('edit [info]')
+  .description('Edit project information, like "author"')
+  .action(info => {
+    if (info === 'author') editAuthor();
+  });
 
-// TODO: refactor this to use commander's actual api
-// ie:
-// program
-//    .command('setup')
-//    .description('run remote setup commands')
-//    .action(function() {
-//      console.log('setup');
-//    });
-// http://tj.github.io/commander.js/#Command.prototype.command
-switch (program.args[0]) {
-  case 'start':
-    startProject(program.args);
-    return;
-  case 'next':
-    nextStep();
-    return;
-  case 'info':
-    showInfo();
-    return;
-  case 'view':
-    viewContent();
-    return;
-  case 'init':
-    initializeProject(program.args);
-    return;
-  case 'add':
-    var typeToAdd = program.args[1];
+logger.logo();
 
-    if (typeToAdd === 'step') addStep(program.args);
-    if (typeToAdd === 'answer') addAnswer(program.args);
-    if (typeToAdd === 'conclusion') addConclusion(program.args);
-
-    return
-  case 'edit':
-    var typeToAdd = program.args[1];
-
-    if (typeToAdd === 'author') editAuthor(program);
-    return
-  case 'publish':
-    publish();
-    return;
-  case 'login':
-    login();
-    return;
-  case 'logout':
-    logout();
-    return;
-  case undefined:
-    console.log('no command provided...')
-    return;
-  default:
-    console.log('command not recognized...')
-    return
-}
+program.parse(process.argv);
