@@ -113,6 +113,4 @@ Erases user auth from local machine.
 
 Clone the project and run it alongside the ducktyper app.
 
-Be aware of whether you are hitting the development or production web urls.
-
-NOT YET IMPLEMENTED: allow an option, '--development', to set the commands to use the local development app url (http://localhost:3000).
+Run ducktypecoder with the flag '-d' or '--development' to use the local development app url (http://localhost:3000).
